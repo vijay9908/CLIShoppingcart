@@ -1,0 +1,77 @@
+import time
+
+
+shopping_products = ["apple" , "banana" , "milk" , "doodhpada" , "palak" , "orange" , "berries" , "chicken" , "cooking_oil"]
+shopping_list = []
+sp_price = [10 , 10 , 10 , 10 , 10 , 10 , 10]
+final_price = 0
+confirm = 1
+confirm2 = 1
+
+print("Welcome to the online shopping GOsame Store")
+time.sleep(0.8)
+print("want to purchase products? , Y / N")
+answer = str(input())
+if (answer.lower() ==  "y"):
+    time.sleep(0.8)
+    print("choose from the products available")
+    for i in  range(0 , len(shopping_products)):
+        print(shopping_products[i])
+    while(confirm!=0):
+        shopping_list.append(str(input().strip()))
+        confirm = int(input("1 to add and 0 to checkout "))
+    print("proceed to checkout , Y / N")
+    answer1 = str(input())
+    price = 10*len(shopping_list)
+    if(answer1.lower() == "y"):
+        print("want to add a 4% cashback coupon? , Y / N")
+        answer2 = str(input())
+        if(answer2.lower() == "y"):
+            final_price = price - (0.04)*price
+        else:
+            print("coupon not applied")
+            final_price = price
+    else:
+        print("edit your cart? , Y / N")
+        answer3 = str(input())
+        if(answer3.lower() == "y"):
+            print("want to remove items? Y / N")
+            answer4 = str(input())
+            if(answer4.lower() == "y"):
+                print("enter the index of shopping_list to remove")
+                while(confirm2 != 0):
+                    rem = int(input())
+                    shopping_list.pop(rem)
+                    confirm2 = int(input("1 to remove another item and 0 to proceed"))
+                print("proceeding to cart")
+                final_price = 10 * len(shopping_list)
+                    
+            else:
+                pass
+        else:
+            print("going to checkout")
+
+            pass 
+else:
+
+    print("thanks for asking!...good_luck")
+        
+    
+print(shopping_list)
+print("the amount to be paid = " , final_price) 
+
+
+ans=str(input("enter way of payment / CASH , CARD"))
+if (ans.lower()=="cash"):
+    print("amount to be paid at time of delivery")
+elif(ans.lower()=="card"):
+    print("this payment option is currently not available ")
+else:
+    print("invalid entry") 
+   
+    
+    
+    
+        
+
+
